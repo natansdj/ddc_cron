@@ -1,0 +1,3 @@
+package: ddc_cron
+import:
+- package: github.com/jasonlvhit/gocron
