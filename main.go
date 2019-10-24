@@ -35,8 +35,8 @@ func task() {
 
 func main() {
 	// remove, clear and next_run
-	_, timeStr := gocron.NextRun()
-	fmt.Println(timeStr)
+	//_, timeStr := gocron.NextRun()
+	//fmt.Println(timeStr)
 
 	//gocron.Remove(task)
 	//gocron.Clear()
