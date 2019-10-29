@@ -1,6 +1,8 @@
-hash: e09e8ded4bc551d3eb48939c340edb35e65fc902f9f3d4ecd1b2d2c4a9de17bb
-updated: 2019-10-24T18:06:25.870342254+07:00
+hash: ecb2ffb51f926b39611382dd2fc23440751517b5d17cea9dd187a71930cf965a
+updated: 2019-10-29T16:08:25.701656176+07:00
 imports:
 - name: github.com/jasonlvhit/gocron
   version: 47e27a9e0dc7cbe56e05a51111d316b6818a762d
+- name: github.com/streadway/amqp
+  version: edfb9018d2714e4ec54dbaba37dbfef2bdadf0e4
 testImports: []
