@@ -20,8 +20,8 @@ func main() {
 	//<- s.Start()
 
 	gocron.Every(5).Seconds().Do(DdcOrderGenerateOrder)
-	gocron.Every(10).Seconds().Do(RemoveExpiredInvitation)
-	gocron.Every(10).Seconds().Do(RemoveExpiredCheckout)
+	// gocron.Every(30).Seconds().Do(RemoveExpiredInvitation)
+	// gocron.Every(30).Seconds().Do(RemoveExpiredCheckout)
 
 	// Runs foo and bar
 	gocron.RunAll()

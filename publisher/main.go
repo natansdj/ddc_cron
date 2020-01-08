@@ -17,6 +17,8 @@ func handleError(err error, msg string) {
 }
 
 func main() {
+	utils.InitRabbitConfig()
+
 	conn, err := amqp.Dial(utils.RabbitConf.AMQPConnectionURL)
 	handleError(err, "Can't connect to AMQP")
 	defer conn.Close()
@@ -26,8 +28,8 @@ func main() {
 
 	defer amqpChannel.Close()
 
-	queue, err := amqpChannel.QueueDeclare("add", true, false, false, false, nil)
-	handleError(err, "Could not declare `add` queue")
+	queue, err := amqpChannel.QueueDeclare("ddc_queue", true, false, false, false, nil)
+	handleError(err, "Could not declare `ddc_queue` queue")
 
 	rand.Seed(time.Now().UnixNano())
 

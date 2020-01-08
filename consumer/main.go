@@ -16,6 +16,8 @@ func handleError(err error, msg string) {
 }
 
 func main() {
+	utils.InitRabbitConfig()
+
 	conn, err := amqp.Dial(utils.RabbitConf.AMQPConnectionURL)
 	handleError(err, "Can't connect to AMQP")
 	defer conn.Close()
@@ -25,8 +27,8 @@ func main() {
 
 	defer amqpChannel.Close()
 
-	queue, err := amqpChannel.QueueDeclare("add", true, false, false, false, nil)
-	handleError(err, "Could not declare `add` queue")
+	queue, err := amqpChannel.QueueDeclare("ddc_queue", true, false, false, false, nil)
+	handleError(err, "Could not declare `ddc_queue` queue")
 
 	err = amqpChannel.Qos(1, 0, false)
 	handleError(err, "Could not configure QoS")
