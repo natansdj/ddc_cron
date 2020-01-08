@@ -19,7 +19,7 @@ func main() {
 	//s.Every(3).Seconds().Do(task)
 	//<- s.Start()
 
-	gocron.Every(5).Seconds().Do(DdcOrderGenerateOrder)
+	gocron.Every(1).Seconds().Do(DdcOrderGenerateOrder)
 	// gocron.Every(30).Seconds().Do(RemoveExpiredInvitation)
 	// gocron.Every(30).Seconds().Do(RemoveExpiredCheckout)
 
