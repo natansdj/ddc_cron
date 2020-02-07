@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-go build && ./ddc_cron
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build && ./ddc_cron
