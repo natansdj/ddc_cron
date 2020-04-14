@@ -20,7 +20,7 @@ func PtgRemoveExpiredCheckout() {
 
 func CancelCustomDelivery() {
 	Output("CancelCustomDelivery")
-	url := "service01:8088/v3/order/cancelcustomdelivery/1/5"
+	url := "service01:8088/v3/order/cancelcustomdelivery/1/120"
 	CurlGET(url)
 }
 
