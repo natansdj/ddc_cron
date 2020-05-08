@@ -1,0 +1,37 @@
+# schedule task for expired order
+*/10	*       *       *       *       curl http://localhost:8085/v3/order/cancel_orders/1/1
+*/10	*       *       *       *       curl http://localhost:8085/v3/order/cancel_orders/1/2
+*/10    *       *       *       *       curl http://localhost:8085/v3/order/cancel_orders/1/6
+*/10    *       *       *       *       curl http://localhost:8085/v3/order/cancel_orders/1/4
+
+59	23 	* 	* 	* 	curl http://localhost:8088/v3/member/checkExpireDate
+59 	23 	* 	* 	*	curl http://localhost:8088/v3/member/checkExpirePointDate
+#30 	15 	* 	* 	* 	curl http://localhost:8088/v3/member/emailStepExpireDate/-7
+00 	15 	* 	* 	* 	curl http://localhost:8088/v3/member/emailStepExpireDate/-3
+#00 	15 	* 	* 	* 	curl http://localhost:8088/v3/member/emailStepExpireDate/-2
+#00 	15 	* 	* 	* 	curl http://localhost:8088/v3/member/emailStepExpireDate/-1
+#00 	15 	* 	* 	* 	curl http://localhost:8088/v3/member/emailStepExpireDate/0
+
+
+5	0	*	*	*	curl https://backofficeapi.dusdusan.com/api/checkPublish
+
+00      15      1       *       *       curl http://localhost:8088/v3/event/eventclosed
+
+*/5     *       *       *       *       curl http://localhost:8088/v3/voucher/removeReserveAndHistory
+*       *       *       *       *       curl http://localhost:8088/v3/voucher/createHistory
+*       *       *       *       *       curl http://localhost:8088/v3/voucher/closeExpired
+
+55      23      *       *       *       curl http://localhost:8088/v3/product/numberofsales
+59      23      *       *       *       curl http://localhost:8088/v3/product/review
+*/5     *       *       *       *       curl http://localhost:8088/v3/promo/closeExpired
+
+*	*	*	*	*	curl http://localhost:8088/v3/order/cancelcustomdelivery/1/120
+
+
+0     *       *       *       *       curl http://localhost:8088/v3/product/calculatemosall
+0     *       *       *       *       curl http://localhost:8088/v3/product/calculatemoshdm
+0     1       *       *       *       curl http://localhost:8088/v3/product/stockopname
+
+*	*   *   *   *   curl http://localhost:8088/v3/patungan/removeExpiredInvitation
+*	*	*	*	*	curl http://localhost:8088/v3/patungan/removeExpiredCheckout
+*	*	*	*	*	curl http://localhost:8088/v3/patungan/lockInitiator
