@@ -22,9 +22,9 @@ func main() {
 	// gocron.Every(3).Seconds().Do(DdcOrderGenerateOrder)
 
 	gocron.Every(5).Minutes().Do(CancelOrder, "1", "1")
-	gocron.Every(5).Minutes().Do(CancelOrder, "1", "2")
-	gocron.Every(5).Minutes().Do(CancelOrder, "1", "4")
-	gocron.Every(5).Minutes().Do(CancelOrder, "1", "6")
+	//gocron.Every(5).Minutes().Do(CancelOrder, "1", "2")
+	//gocron.Every(5).Minutes().Do(CancelOrder, "1", "4")
+	//gocron.Every(5).Minutes().Do(CancelOrder, "1", "6")
 
 	// gocron.Every(5).Minutes().Do(VoucherRemoveReserveAndHistory)
 	// gocron.Every(1).Minute().Do(VoucherCreateHistory)
@@ -34,7 +34,7 @@ func main() {
 	// gocron.Every(1).Minutes().Do(CancelCustomDelivery)
 
 	gocron.Every(5).Minutes().Do(CheckMemberExpired)
-	gocron.Every(5).Minutes().Do(CheckMemberExpiredPoint)
+	//gocron.Every(5).Minutes().Do(CheckMemberExpiredPoint)
 	gocron.Every(5).Minutes().Do(UnlockMember, "1")
 	//gocron.Every(1).Day().Do(EmailStepExpireDate, "-3")
 
