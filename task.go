@@ -78,30 +78,9 @@ func PromoCloseExpired() {
 }
 
 //*/10    *
-func CancelOrder11() {
-	Output("Cancel Order 1 1")
-	url := "service01:8085/v3/order/cancel_orders/1/1"
-	CurlGET(url)
-}
-
-//*/10    *
-func CancelOrder12() {
-	Output("Cancel Order 1 2")
-	url := "service01:8085/v3/order/cancel_orders/1/2"
-	CurlGET(url)
-}
-
-//*/10    *
-func CancelOrder16() {
-	Output("Cancel Order 1 6")
-	url := "service01:8085/v3/order/cancel_orders/1/6"
-	CurlGET(url)
-}
-
-//*/10    *
-func CancelOrder14() {
-	Output("Cancel Order 1 4")
-	url := "service01:8085/v3/order/cancel_orders/1/4"
+func CancelOrder(orderStatusId, paymentMethodId string) {
+	Output("Cancel Order " + orderStatusId + " " + paymentMethodId)
+	url := "service01:8085/v3/order/cancel_orders/" + orderStatusId + "/" + paymentMethodId
 	CurlGET(url)
 }
 
@@ -119,10 +98,17 @@ func CheckMemberExpiredPoint() {
 	CurlGET(url)
 }
 
+//59 	23
+func UnlockMember(intervalDays string) {
+	Output("UnlockMember")
+	url := "service01:8088/v3/member/unlockMember/" + intervalDays
+	CurlGET(url)
+}
+
 //00 	15
-func EmailStepExpireDate() {
+func EmailStepExpireDate(stepDay string) {
 	Output("EmailStepExpireDate")
-	url := "service01:8088/v3/member/emailStepExpireDate/-3"
+	url := "service01:8088/v3/member/emailStepExpireDate/" + stepDay
 	CurlGET(url)
 }
 

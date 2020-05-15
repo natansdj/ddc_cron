@@ -20,20 +20,27 @@ func main() {
 	//<- s.Start()
 
 	// gocron.Every(3).Seconds().Do(DdcOrderGenerateOrder)
-	gocron.Every(1).Minute().Do(PtgRemoveExpiredInvitation)
-	gocron.Every(1).Minute().Do(PtgRemoveExpiredCheckout)
 
-	gocron.Every(1).Minutes().Do(CancelCustomDelivery)
+	gocron.Every(5).Minutes().Do(CancelOrder, "1", "1")
+	gocron.Every(5).Minutes().Do(CancelOrder, "1", "2")
+	gocron.Every(5).Minutes().Do(CancelOrder, "1", "4")
+	gocron.Every(5).Minutes().Do(CancelOrder, "1", "6")
 
 	// gocron.Every(5).Minutes().Do(VoucherRemoveReserveAndHistory)
 	// gocron.Every(1).Minute().Do(VoucherCreateHistory)
 	// gocron.Every(1).Minute().Do(VoucherCloseExpired)
 	// gocron.Every(5).Minutes().Do(PromoCloseExpired)
 
-	// gocron.Every(10).Minutes().Do(CancelOrder11)
-	// gocron.Every(10).Minutes().Do(CancelOrder12)
-	// gocron.Every(10).Minutes().Do(CancelOrder14)
-	// gocron.Every(10).Minutes().Do(CancelOrder16)
+	// gocron.Every(1).Minutes().Do(CancelCustomDelivery)
+
+	gocron.Every(5).Minutes().Do(CheckMemberExpired)
+	gocron.Every(5).Minutes().Do(CheckMemberExpiredPoint)
+	gocron.Every(5).Minutes().Do(UnlockMember, "1")
+	//gocron.Every(1).Day().Do(EmailStepExpireDate, "-3")
+
+	//gocron.Every(1).Minute().Do(PtgRemoveExpiredInvitation)
+	//gocron.Every(1).Minute().Do(PtgRemoveExpiredCheckout)
+	//gocron.Every(30).Minutes().Do(PtgLockInitiator)
 
 	// Runs foo and bar
 	gocron.RunAll()
