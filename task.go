@@ -1,12 +1,5 @@
 package main
 
-//deprecated
-func DdcOrderGenerateOrder() {
-	Output("DdcOrderGenerateOrder")
-	url := "service01:8085/v3/order/generateOrder"
-	CurlGET(url)
-}
-
 //*	*
 func PtgRemoveExpiredInvitation() {
 	Output("PtgRemoveExpiredInvitation")
